@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert title here</title>
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        function save() {
+            var obj= "guotou"
+            $.ajax({
+                url: "/user/findAll",
+                contentType: "application/json; charset=utf-8",
+                type: "post",
+                data: obj,
+                success: function (message) {
+                    if (message > 0) {
+                        alert("请求已提交！我们会尽快与您取得联系");
+                    } else
+                        alert("请求失败！！！")
+                }
+            });
+        }
+    </script>
+</head>
+
+
+<body>
+<h3>
+    <button onclick="save()">登录</button>
+</h3>
+</body>
+</html>
