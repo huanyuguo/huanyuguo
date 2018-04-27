@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="
+	   	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!--TODO: 加载属性文件 -->
+	<!-- <context:property-placeholder location="classpath:/properties/*.properties"/> -->
+
+	<context:component-scan base-package="com.byzoro.controller"></context:component-scan>
+
+<!--TODO: 配置处理器映射器 -->
+ <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+<!--TODO: 处理器适配器 -->
+ <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean>
+
+<!--TODO: 以注解的方式代替映射器和适配器的配置 -->
+	<mvc:annotation-driven /> 
+
+<!--TODO: 配置我们的文件上传解析 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+     	<property name="maxUploadSize" value="5242880"></property>
+    </bean>
+	
+<!--TODO: 配置静态资源放过不拦截 location:指定我们要放过的资源路径 mapping:映射哪些请求放过-->
+       <mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+</beans>      	
