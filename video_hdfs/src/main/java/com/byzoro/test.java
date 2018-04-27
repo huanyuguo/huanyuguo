@@ -1,0 +1,1 @@
+package com.byzoro;import com.byzoro.dao.hdfsDao;import com.byzoro.dao.impl.hdfsDaoImpl;/** * @author huanyuguo * @date 2018/4/19 20:30 */public class test {    public static void main(String[] args) throws Exception {        hdfsDao hdfsDao = new hdfsDaoImpl();    }}
