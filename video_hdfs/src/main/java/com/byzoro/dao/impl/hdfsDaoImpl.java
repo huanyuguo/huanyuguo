@@ -76,7 +76,7 @@ public class hdfsDaoImpl implements hdfsDao {
 //            FSDataOutputStream out = fileSystem.create(new Path("/byzoro/spark/zhuoyaoji.mp4"));
             //TODO: 上传本地文件到hdfs文件系统
             IOUtils.copyBytes(in, out, conf);
-            System.out.println("===============上传完毕===============");
+            System.out.println("上传完毕");
             //TODO: 关闭文件系统
             fs.close();
         } catch (Exception e) {
