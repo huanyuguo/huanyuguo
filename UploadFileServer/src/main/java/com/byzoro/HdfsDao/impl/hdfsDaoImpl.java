@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import com.byzoro.HdfsDao.hdfsDao;
+import com.byzoro.HdfsDao.HdfsDao;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FSDataOutputStream;
@@ -14,13 +14,16 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.util.Progressable;
 
-public class hdfsDaoImpl implements hdfsDao {
+public class HdfsDaoImpl implements HdfsDao {
 
-    @Override
     /**
-     *  TODO: 上传视频流到hdfs
+     *
+     * @param file     需要上传的视频
+     * @throws Exception
+     * TODO: 上传视频流到hdfs
      */
-    public void copyToHdfs() throws Exception {
+    @Override
+    public void copyToHdfs(File file) throws Exception {
         //TODO: 创建Configuration对象
         Configuration conf = new Configuration();
         //TODO: 连接远程hdfs
@@ -28,18 +31,16 @@ public class hdfsDaoImpl implements hdfsDao {
         try {
             hdfsFileSystem = FileSystem.get(new URI("hdfs://node01:9000"), conf);
         } catch (URISyntaxException e) {
-            throw new Exception("===============hdfs连接失败===============");
+            throw new Exception("hdfs连接失败");
         }
-        System.out.println("===============hdfs已连接===============");
-        //TODO: 创建两个FileSystem对象
-//        FileSystem sendhdfs = FileSystem.get(conf);
+        System.out.println("hdfs已连接");
+        //TODO: 创建FileSystem对象
         FileSystem localFileSystem = FileSystem.getLocal(conf);
         //TODO: 确定需要上传的视频流本地路径，相当于设置"缓存区"中文件的路径
-        Path localPath = new Path("D:/file/word.txt");
-        //TODO: 设置接收视频流路径，在HDFS系统上的/byzoro/video 路径下接收视频流数据
+        Path localPath = new Path(file.getAbsolutePath());
 
+        //TODO: 设置接收视频流路径，在HDFS系统上的/byzoro/video 路径下接收视频流数据
         FileStatus[] fileStatus = localFileSystem.listStatus(localPath);
-        System.out.println(fileStatus);
         FSDataOutputStream outputStream;
         //TODO: 循环写入视频文件到HDFS
         for (int i = 0; i < fileStatus.length; i++) {
@@ -55,11 +56,13 @@ public class hdfsDaoImpl implements hdfsDao {
             outputStream.close();
             inputStream.close();
             //TODO: 获取文件路径
-            File file = new File(fileStatus[i].getPath().toString().substring(5));
+            File file1 = new File(fileStatus[i].getPath().toString().substring(5));
             //TODO: 上传完成后删除本地文件
-            file.delete();
+            file1.delete();
         }
     }
+
+
 
     @Override
     public void uploadFile() throws Exception {
