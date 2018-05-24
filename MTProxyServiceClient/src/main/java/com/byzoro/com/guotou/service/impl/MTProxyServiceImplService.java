@@ -1,17 +1,16 @@
 
-package com.byzoro.service.impl;
+package com.byzoro.com.guotou.service.impl;
 
-import com.byzoro.service.MTProxyService;
-
-import javax.xml.namespace.QName;
-import javax.xml.ws.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+import javax.xml.ws.WebEndpoint;
+import javax.xml.ws.WebServiceClient;
+import javax.xml.ws.WebServiceException;
+import javax.xml.ws.WebServiceFeature;
 
-/**
- * @author huanyuguo
- * @date 2018/5/24 9:11
-**/
+
 @WebServiceClient(name = "MTProxyServiceImplService", targetNamespace = "http://impl.service.guotou.com/", wsdlLocation = "http://localhost:8888/uploadFileService?wsdl")
 public class MTProxyServiceImplService
     extends Service
@@ -63,20 +62,20 @@ public class MTProxyServiceImplService
      *     returns MTProxyService
      */
     @WebEndpoint(name = "MTProxyServiceImplPort")
-    public MTProxyService getMTProxyServiceImplPort() {
-        return super.getPort(new QName("http://impl.service.guotouu.com/", "MTProxyServiceImplPort"), MTProxyService.class);
+    public com.byzoro.com.guotou.service.impl.MTProxyService getMTProxyServiceImplPort() {
+        return super.getPort(new QName("http://impl.service.guotou.com/", "MTProxyServiceImplPort"), com.byzoro.com.guotou.service.impl.MTProxyService.class);
     }
 
     /**
      * 
      * @param features
-     *     A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
      *     returns MTProxyService
      */
     @WebEndpoint(name = "MTProxyServiceImplPort")
-    public MTProxyService getMTProxyServiceImplPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://impl.service.guotou.com/", "MTProxyServiceImplPort"), MTProxyService.class, features);
+    public com.byzoro.com.guotou.service.impl.MTProxyService getMTProxyServiceImplPort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://impl.service.guotou.com/", "MTProxyServiceImplPort"), com.byzoro.com.guotou.service.impl.MTProxyService.class, features);
     }
 
     private static URL __getWsdlLocation() {
