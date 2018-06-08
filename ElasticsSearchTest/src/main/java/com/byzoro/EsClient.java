@@ -15,9 +15,9 @@ public class EsClient {
 
     TransportClient client = null;
     private static String CLUSTERNAME = "elasticsearch";
-    private static String HOST1 = "10.8.1.38";
-    private static String HOST2 = "10.8.1.39";
-    private static String HOST3 = "10.8.1.41";
+    private static String HOST1 = "10.8.1.81";
+    private static String HOST2 = "10.8.1.82";
+    private static String HOST3 = "10.8.1.83";
     private static int PORT = 9300;
 
     public EsClient() {
