@@ -1,0 +1,1 @@
+package com.byzoro.thread.SharingRestrictedResources;/** * @author huanyuguo * @date 2018/5/22 14:04 */public class SynchronizedEvenGenerator {}

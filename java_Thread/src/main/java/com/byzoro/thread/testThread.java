@@ -1,0 +1,1 @@
+package com.byzoro.thread;/** * @Describe TODO: 运用Thread类 * @Param * @return * @author huanyuguo * @date 2018/5/20 16:24**/public class testThread {    public static void main(String[] args) {        for (int i = 0; i < 5; i++) {            new Thread(new LiftOff()).start();        }        System.out.println("hello world...");    }}
