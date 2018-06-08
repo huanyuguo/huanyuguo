@@ -30,6 +30,7 @@ public class UploadFileService
         URL url = null;
         WebServiceException e = null;
         try {
+//            url = new URL("http://10.8.1.17:8888/uploadFileService?wsdl");
             url = new URL("http://localhost:8888/uploadFileService?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);

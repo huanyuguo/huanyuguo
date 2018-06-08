@@ -40,6 +40,8 @@ public interface UploadFileInterface {
     public String alarmInform(
             @WebParam(name = "cameraID", partName = "cameraID")
                     String cameraID,
+            @WebParam(name = "fileName", partName = "fileName")
+                    String fileName,
             @WebParam(name = "alarmType", partName = "alarmType")
                     String alarmType,
             @WebParam(name = "alarmTime", partName = "alarmTime")

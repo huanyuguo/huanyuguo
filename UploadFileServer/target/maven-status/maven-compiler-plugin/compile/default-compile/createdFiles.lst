@@ -1,0 +1,8 @@
+com\byzoro\version2\MTProxyService.class
+com\byzoro\HdfsDao\impl\HdfsDaoImpl.class
+com\byzoro\FileSources.class
+com\byzoro\version1\impl\UploadFile.class
+com\byzoro\version1\UploadFileInterface.class
+com\byzoro\Server.class
+com\byzoro\version2\impl\MTProxyServiceImpl.class
+com\byzoro\HdfsDao\HdfsDao.class
