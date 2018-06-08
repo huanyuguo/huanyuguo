@@ -26,15 +26,11 @@ public interface MTProxyService {
     public String alarmInform(
         @WebParam(name = "cameraID", partName = "cameraID")
         String cameraID,
-        @WebParam(name = "fileName", partName = "fileName")
-        String fileName,
         @WebParam(name = "alarmType", partName = "alarmType")
         String alarmType,
         @WebParam(name = "alarmTime", partName = "alarmTime")
         String alarmTime,
         @WebParam(name = "alarmPicture", partName = "alarmPicture")
-        String alarmPicture,
-        @WebParam(name = "alarmVideo", partName = "alarmVideo")
-        String alarmVideo);
+        String alarmPicture);
 
 }
